@@ -3,21 +3,7 @@
 2. Laravel project ready (or you can create a new one using laravel new project-name)
 
 **Folder Structure**
-Assume your Laravel project is named laravel-app/
-
-laravel-app/
-├── app/ (Laravel codebase)
-├── docker/
-│   ├── php/
-│   │   └── Dockerfile
-│   ├── nginx/
-│   │   └── default.conf
-│   └── mysql/ (optional for DB volumes)
-├── .env
-├── docker-compose.yml
-├── scripts.bash
-├── README.md
-
+Assume your Laravel project is named laravel-app
 
 **Create Dockerfile for PHP**
 docker/php/Dockerfile
