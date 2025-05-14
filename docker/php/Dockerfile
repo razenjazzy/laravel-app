@@ -8,10 +8,15 @@ RUN apt-get update && apt-get install -y \
 # Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Set working directory
 WORKDIR /var/www
 
-# Copy Laravel files (will be mounted in docker-compose)
+# Copy only necessary files first to leverage Docker layer caching
+COPY composer.json composer.lock ./
+
+# Install optimized Composer dependencies
+RUN composer install --no-dev --optimize-autoloader --no-interaction
+
+# Now copy the rest of the app
 COPY . .
 
 # Permissions
